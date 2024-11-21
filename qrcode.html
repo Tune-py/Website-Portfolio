@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .header {
+      padding: 30px;
+      text-align: center;
+      background:  #1abc9c;
+      color: white;
+    }
+    .header h2 {
+      font-size: 40px;
+    }
+    .button{
+    background-color: aquamarine;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    </style>
+</head>
+<body style="background-color:#ccffcc;">
+  <div class="header">
+    <h2>Generate QR Code</h2>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="button"> <center><input type="text" id="qr-code-value" placeholder="Enter text or URL">
+  <button class="button" onclick="generateQRCode()">Generate QR Code</button>
+  <img id="qr-code-image" alt="QR code">
+  </center></div>
+
+     <center>
+      <a href="Works2.html" class="button">EXIT</a>
+      </center>
+</body>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script>
+  function generateQRCode() {
+    const value = document.getElementById('qr-code-value').value;
+    const options = {
+      value: value,  
+      size: 400,  
+      level: 'H'  
+    };
+    const qrCode = new QRious(options);
+    const qrCodeImage = qrCode.toDataURL();
+    document.getElementById('qr-code-image').src = qrCodeImage;
+  }
+</script>
+
+</html>
+
